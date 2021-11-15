@@ -22,8 +22,10 @@ print("Home Path is: {}".format(Nix_File[31:46]))
 print("Command executed: {}".format(Nix_File[46:]))
 
 # Another way of splitting the long string into a list
-test_list = Nix_File.split(":", 7) #
+test_list = Nix_File.split(":", 7) # Maximum amount of elements will output
 print(test_list)
+
+# Output: ['rlennon', 'x', '1234', '1001', 'Ruth Lennon', '/users/rlennon', '/bin/bash']
 
 
 
