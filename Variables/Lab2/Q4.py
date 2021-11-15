@@ -13,24 +13,16 @@
 
 Nix_File = "rlennon:x:1234:1001:Ruth Lennon:/users/rlennon:/bin/bash"
 
-username = Nix_File[0:7]
-password = Nix_File[8:9]
-user_ID = Nix_File[10:14]
-group_ID = Nix_File[15:19]
-user_ID_Info = Nix_File[20:31]
-home_path = Nix_File[31:46]
-command_shell = Nix_File[46:]
-
-print("Username: {}".format(username))
-print("Password: {}".format(password))
-print("User ID: {}".format(user_ID))
-print("Group ID: {}".format(group_ID))
-print("User ID Info: {}".format(user_ID_Info))
-print("Home Path is: {}".format(home_path))
-print("Command executed: {}".format(command_shell))
+print("Username: {}".format(Nix_File[0:7]))
+print("Password: {}".format(Nix_File[8:9]))
+print("User ID: {}".format(Nix_File[10:14]))
+print("Group ID: {}".format(Nix_File[15:19]))
+print("User ID Info: {}".format(Nix_File[20:31]))
+print("Home Path is: {}".format(Nix_File[31:46]))
+print("Command executed: {}".format(Nix_File[46:]))
 
 # Another way of splitting the long string into a list
-test_list = Nix_File.split(":", 7) # Short method
+test_list = Nix_File.split(":", 7) #
 print(test_list)
 
 
