@@ -3,6 +3,10 @@
 # FileName = Question2.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
+#
+# Lab Description: Using multiple print statements only create the following
+# screen in PyCharm. Loops are not allowed in this question.
+# Multiple valid answers exist.
 # ------------------------------------------
 
 print(50*"^")
