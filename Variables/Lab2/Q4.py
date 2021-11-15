@@ -1,6 +1,6 @@
 # ------------------------------------------
 # Project = PythonLabs
-# FileName = Lab2/Q1.py
+# FileName = Lab2/Q4.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
 #
