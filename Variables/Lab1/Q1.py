@@ -1,4 +1,4 @@
-# FileName = Question1.py
+# FileName = Q1.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
 #

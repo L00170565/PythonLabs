@@ -1,6 +1,6 @@
 # ------------------------------------------
 # Project = PythonLabs
-# FileName = Question2.py
+# FileName = Q2.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
 #
