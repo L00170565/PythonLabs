@@ -19,10 +19,10 @@
 # print(50*"^")
 # print("< {0:<30s} {1:6.8s}".format("Book Title", "Cost" ))
 # print("\n" * 2)
-books , prices = [] , []
+books , prices = [] , [] # Create two empty lists
 
-num_of_books = int(input("How many books:"))
-for i in range(num_of_books):
+num_of_books = int(input("How many books:")) # Ask the user input for books Title and price
+for i in range(num_of_books): # Iterate through the loop to store book Titles and prices
     book_title = input("Please enter a book Title:")
     books.append(book_title)
     price = float(input("Please enter a price:"))
@@ -31,11 +31,11 @@ for i in range(num_of_books):
 # print("{0:<30s} {1:6.1}".format(book_title, price))
 # print("Sum of books in given list:", sum(prices))
 title = "Invoice"
-print(title.rjust(30, ' '))
+print(title.rjust(30, ' ')) # print format for Invoice
 title2 = "Customer: L00170565"
-print("{:>35s}".format(title2))
+print("{:>35s}".format(title2)) # print format for customer
 print(50*"-")
-for i in range(len(books)):
+for i in range(len(books)): # iterate through the stored books and prices and printout on screen
     print(f'{books[i]} \t\t\t\t\t\t\t\t€ {prices[i]}')
 # print("{0:<30s} {1:6.5}".format(books[], prices[]))
 # print(*books, *prices, sep = "\n")
@@ -47,4 +47,4 @@ for i in range(len(books)):
 
 # print("< {0:<30s} {1:6.1}".format("Total", price))
 print(50*"-")
-print("Total price: €", sum(prices))
+print("Total price: €", sum(prices)) # Calculate the total of all books prices
