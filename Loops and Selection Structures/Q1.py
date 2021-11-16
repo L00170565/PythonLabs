@@ -22,7 +22,7 @@ answer = random.randint(1, 20) # random members are generated on the range of 1-
 guesses = []
 while True:
     # While the user keeps entering integers will continue to play.
-    # If any character is inserted will quit game
+    # If any other character is inserted will quit game
         guess = int(input("Please enter your guess [1-20]: "))
         if not guess in guesses:
             guesses.append(guess)
