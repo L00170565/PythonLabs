@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # ------------------------------------------
 # Project = PythonLabs
 # FileName = Lab2/Q2.py
