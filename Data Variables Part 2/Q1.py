@@ -2,7 +2,7 @@
 
 # ------------------------------------------
 # Project = PythonLabs
-# FileName = Lab3/Q1.py
+# FileName = Lab8-Part2/Q1.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
 #
