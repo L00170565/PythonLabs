@@ -11,14 +11,6 @@
 # BookTitle1 Cost Running Total
 # ------------------------------------------
 
-# title = "Invoice"
-# print(title.rjust(30, ' '))
-# title2 = "Customer: L00170565"
-# print("{:>35s}".format(title2))
-#
-# print(50*"^")
-# print("< {0:<30s} {1:6.8s}".format("Book Title", "Cost" ))
-# print("\n" * 2)
 books , prices = [] , [] # Create two empty lists
 
 num_of_books = int(input("How many books:")) # Ask the user input for books Title and price
@@ -37,14 +29,6 @@ print("{:>35s}".format(title2)) # print format for customer
 print(50*"-")
 for i in range(len(books)): # iterate through the stored books and prices and printout on screen
     print(f'{books[i]} \t\t\t\t\t\t\t\t€ {prices[i]}')
-# print("{0:<30s} {1:6.5}".format(books[], prices[]))
-# print(*books, *prices, sep = "\n")
-# print(*prices, sep = "\n")
-# print("\n" * 2)
-#print(*books, sep = "\n")
 
-    # print(50*"-")
-
-# print("< {0:<30s} {1:6.1}".format("Total", price))
 print(50*"-")
 print("Total price: €", sum(prices)) # Calculate the total of all books prices
