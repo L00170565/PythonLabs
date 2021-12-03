@@ -12,6 +12,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+import pandas
 
 website = "http://192.168.209.138/"
 result = requests.get(website)
