@@ -33,6 +33,10 @@ for item in questions:
     #print(buy)
     watchers = item.find('span', {'class': 's-item__dynamic s-item__additionalItemHotness'}) #Find with tag for watchers
     #print(watchers)
+    rating = item.find('span', {'class': 's-item__reviews-count'})
+    #print(rating)
+    country = item.find('span', {'class': 's-item__location s-item__itemLocation'})
+    #print(country)
 
 
 
