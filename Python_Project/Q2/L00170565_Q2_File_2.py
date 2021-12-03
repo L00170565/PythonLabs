@@ -18,8 +18,8 @@ def read_Page_Contents():
     """ scrape web page contents"""
     print("Contents of Page")
 
-    #url = urlopen("https://www.lyit.ie/")
-    url = urlopen("http://192.168.209.138")
+    url = urlopen("https://www.lyit.ie/")
+    #url = urlopen("http://192.168.209.138")
     soup = BeautifulSoup(url, "html.parser") # Python html parser
    # soup = BeautifulSoup(url, features="html5lib")
 
