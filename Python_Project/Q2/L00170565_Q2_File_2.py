@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 
 # ------------------------------------------
-# Project = PythonLabs
-# FileName = Lab8-Part2/Q2.py
+# Project =
+# FileName =
 #
 # (C) 2021 Panagiotis Drakos, L00170565
-# Networking Lab exercises and Examples
-# Description: This example shows how a list of ip addresses for servers can be tested for connectivity.
+#
 # ------------------------------------------
 
+ # '''Import required libraries: BeautifulSoup, requests and the parser lxml'''
+
+from bs4 import BeautifulSoup
+import requests
+
+website = "http://192.168.209.138/"
+result = requests.get(website)
+content = result.text
+
+soup = BeautifulSoup(content, 'html.parser') # Python html parser
+print(soup.prettify())
 
 
 
