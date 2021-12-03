@@ -8,28 +8,29 @@
 #
 # ------------------------------------------
 
- # '''Import required libraries: BeautifulSoup, requests and the html parser'''
-
-from urllib.request import urlopen
+import requests
 from bs4 import BeautifulSoup
-import urllib.request
 
-def read_Page_Contents():
-    """ scrape web page contents"""
-    print("Contents of Page")
+headers = {
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'}
+# url = 'https://www.lyit.ie/Search-Results?Search=computing'
+# url = 'https://en.wikipedia.org/wiki/Korean_War'
+url = 'https://stackoverflow.com/questions/tagged/python'
+r = requests.get(url, headers=headers)
 
-    url = urlopen("https://www.lyit.ie/")
-    #url = urlopen("http://192.168.209.138")
-    soup = BeautifulSoup(url, "html.parser") # Python html parser
-   # soup = BeautifulSoup(url, features="html5lib")
+# print(r.status_code)
+soup = BeautifulSoup(r.text, "html.parser")
 
-    titles = soup.find_all(['h1', 'h2','h3','h4','h5','h6']) # Headers to read
+questions = soup.find_all('div', {'class': 'question-summary'})
 
-    print('List all the header tags:', *titles, sep='\n\n') # Print all the headers and separate them with newline
+# print(len(questions))
 
+for item in questions:
+    title = item.find('a', {'class': 'question-hyperlink'}).text
+    url = item.find('a', {'class': 'question-hyperlink'})['href']
 
-if __name__ == "__main__":
-    read_Page_Contents()
+    print(url)
+
 
 
 
