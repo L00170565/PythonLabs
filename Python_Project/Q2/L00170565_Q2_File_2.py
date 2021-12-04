@@ -55,5 +55,5 @@ def read_page_contents():
 
 if __name__ == "__main__":
     read_page_contents()
-    # df = pd.DataFrame(cart_list)  # Need to update this
+    # df = pd.DataFrame(cart_list)  # Need to work on that
     # df.to_excel('test.xlsx')
