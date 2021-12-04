@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # ------------------------------------------
-# File Name = L00170565_Q2_File.py
+# File Name = L00170565_Q2_File_2.py
 # Project = Python Project
 #
 # Author = Panagiotis Drakos, L00170565
