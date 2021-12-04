@@ -6,7 +6,7 @@
 #
 # Author = Panagiotis Drakos, L00170565
 # Date = 03/12/21
-# Copyright = (C) 2021 Panagiotis Drakos,
+# Copyright = (C) 2021 Panagiotis Drakos
 # ------------------------------------------
 
 # Import the libraries
