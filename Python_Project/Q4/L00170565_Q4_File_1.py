@@ -8,7 +8,12 @@
 # Date = 03/12/21
 # Copyright = (C) 2021 Panagiotis Drakos
 # ------------------------------------------
-
+""" Description: We have first imported the Paramiko library SSHClient in order to be able to initiate
+an SSH session with remote host. For an already known host, host system keys can be loaded,
+but in order to be more secure, Paramiko's AutoAddPolicy has been used, and instead of loading the
+host keys from the system itself, unknown host keys are used. With that second part configured,
+a try-catch block is used and execute the instructions for connection and remote execution of command nmap
+to the remote host."""
 
 from sys import stdout
 
@@ -28,15 +33,13 @@ def ssh_connection(ip):
                        password=getpass.getpass(prompt='Password: ', stream=None),
                        look_for_keys=False)
         print("Connected Successfully...")
-        stdin, stdout, stderr = client.exec_command("nmap 192.168.209.138\n")
+        stdin, stdout, stderr = client.exec_command("nmap 192.168.209.138\n")  # Execute command nmap to remote host
         command_result = stdout.readlines()
-        print("Active ports for remote host: ", command_result)
+        print("Active ports for remote host: ", command_result)  # Read the output of the command and print it
 
         client.close()  # close the session
     except paramiko.AuthenticationException:
         print("Failed to connect")
-    # finally:
-    #     client.close()
 
 
 ssh_connection("192.168.209.138")
