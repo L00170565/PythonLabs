@@ -8,12 +8,12 @@
 # Date = 03/12/21
 # Copyright = (C) 2021 Panagiotis Drakos
 # ------------------------------------------
+
+
 from sys import stdout
 
 from paramiko.client import SSHClient, AutoAddPolicy
 import getpass
-import time
-import re
 import paramiko
 
 
@@ -28,15 +28,9 @@ def ssh_connection(ip):
                        password=getpass.getpass(prompt='Password: ', stream=None),
                        look_for_keys=False)
         print("Connected Successfully...")
-        connection = client.invoke_shell()
-        connection.send("ifconfig > panos_ifconfig.txt\n")
-        time.sleep(2)
-
-        vm_output = connection.recv(65535)
-        if re.search(b"% Invalid input", vm_output):
-            print("There was an error on vm {}".format(ip))
-        else:
-            print("Command successfully executed on {}".format(ip))
+        stdin, stdout, stderr = client.exec_command("nmap 192.168.209.138\n")
+        command_result = stdout.readlines()
+        print("Active ports for remote host: ", command_result)
 
         client.close()  # close the session
     except paramiko.AuthenticationException:
@@ -46,14 +40,4 @@ def ssh_connection(ip):
 
 
 ssh_connection("192.168.209.138")
-
-
-
-
-
-
-
-
-
-
 
