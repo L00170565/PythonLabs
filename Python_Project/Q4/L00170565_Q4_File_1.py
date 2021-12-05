@@ -29,7 +29,7 @@ def ssh_connection(ip):
                        look_for_keys=False)
         print("Connected Successfully...")
         connection = client.invoke_shell()
-        connection.send("ifconfig > ifconfig.txt\n")
+        connection.send("ifconfig > panos_ifconfig.txt\n")
         time.sleep(2)
 
         vm_output = connection.recv(65535)
@@ -37,10 +37,7 @@ def ssh_connection(ip):
             print("There was an error on vm {}".format(ip))
         else:
             print("Command successfully executed on {}".format(ip))
-            vm_output = stdout.readlines()
-            with open("ifconfig.txt", "w") as out_file:
-                for line in input:
-                    out_file.write(line)
+
         client.close()  # close the session
     except paramiko.AuthenticationException:
         print("Failed to connect")
