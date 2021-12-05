@@ -13,15 +13,24 @@ an SSH session with remote host. For an already known host, host system keys can
 but in order to be more secure, Paramiko's AutoAddPolicy has been used, and instead of loading the
 host keys from the system itself, unknown host keys are used. With that second part configured,
 a try-catch block is used and execute the instructions for connection and remote execution of command nmap
-to the remote host."""
+to the remote host. Purpose of this script is to install in ubuntu vm curl, to create a folder including two
+sub folders under Desktop path and to print out the last time these folders accessed"""
 
+import time
 from sys import stdout
 
 from paramiko.client import SSHClient, AutoAddPolicy
 import getpass
 import paramiko
+import os
 
+path1 = '/home/dev/Desktop/Labs/Lab1'
+path2 = '/home/dev/Desktop/Labs/Lab2'
+access_time1 = os.path.getatime(path1)
+access_time2 = os.path.getatime(path2)
 
+local_time1 = time.ctime(access_time1)
+local_time2 = time.ctime(access_time2)
 
 
 def ssh_connection(ip):
@@ -36,15 +45,15 @@ def ssh_connection(ip):
                        look_for_keys=False)
         print("Connected Successfully...")
         connection = client.invoke_shell()
-        connection.send("sudo -K apt-get install curl")
+        connection.send("sudo ")
         (stdin, stdout, stderr) = client.exec_command("mkdir /home/dev/Desktop/Labs")
         (stdin, stdout, stderr) = client.exec_command("mkdir /home/dev/Desktop/Labs/Lab1")
         (stdin, stdout, stderr) = client.exec_command("mkdir /home/dev/Desktop/Labs/Lab2")
-
+        print("Last access time: ", local_time1)
+        print("Last access time: ", local_time2)
         client.close()  # close the session
     except paramiko.AuthenticationException:
         print("Failed to connect")
 
 
 ssh_connection("192.168.209.138")
-
