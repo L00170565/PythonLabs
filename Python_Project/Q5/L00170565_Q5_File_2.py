@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # ------------------------------------------
-# File Name = L00170565_Q4_File_2.py
+# File Name = L00170565_Q5_File_2.py
 # Project = Python Project
 #
 # Author = Panagiotis Drakos, L00170565
@@ -24,6 +24,7 @@ import getpass
 import paramiko
 import os
 
+# Declaring the needed variables
 path1 = '/home/dev/Desktop/Labs/Lab1'
 path2 = '/home/dev/Desktop/Labs/Lab2'
 access_time1 = os.path.getatime(path1)
