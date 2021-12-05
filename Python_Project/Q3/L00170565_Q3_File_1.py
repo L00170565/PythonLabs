@@ -12,10 +12,10 @@ from paramiko.client import SSHClient, AutoAddPolicy
 
 
 def ssh_connection(ip):
-    user_name = "dev"
-    user_pass = "dev123!"
-    remote_ip = "192.168.209.138"
-    remote_port = 22  # Change this if your SSH port is different
+    user_name = "dev"  # provide username
+    user_pass = "dev123!"  # provide user password
+    remote_ip = "192.168.209.138"  # provide remote host to connect with ssh
+    remote_port = 22
 
     client = SSHClient()
     # client.load_system_host_keys() # For already known hosts
@@ -26,7 +26,7 @@ def ssh_connection(ip):
                        password=user_pass,
                        look_for_keys=False)
         print("Connected Successfully...")
-        client.close()
+        client.close()  # close the session
     except Exception:
         print("Failed to connect")
     # finally:
