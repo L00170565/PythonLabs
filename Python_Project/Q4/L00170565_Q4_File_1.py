@@ -8,6 +8,7 @@
 # Date = 03/12/21
 # Copyright = (C) 2021 Panagiotis Drakos
 # ------------------------------------------
+from sys import stdout
 
 from paramiko.client import SSHClient, AutoAddPolicy
 import getpass
@@ -36,6 +37,10 @@ def ssh_connection(ip):
             print("There was an error on vm {}".format(ip))
         else:
             print("Command successfully executed on {}".format(ip))
+            vm_output = stdout.readlines()
+            with open("ifconfig.txt", "w") as out_file:
+                for line in input:
+                    out_file.write(line)
         client.close()  # close the session
     except paramiko.AuthenticationException:
         print("Failed to connect")
