@@ -21,6 +21,8 @@ from paramiko.client import SSHClient, AutoAddPolicy
 import getpass
 import paramiko
 
+output_file = 'scanports.txt'
+
 
 def ssh_connection(ip):
     client = SSHClient()
@@ -33,14 +35,16 @@ def ssh_connection(ip):
                        password=getpass.getpass(prompt='Password: ', stream=None),
                        look_for_keys=False)
         print("Connected Successfully...")
-        stdin, stdout, stderr = client.exec_command("nmap 192.168.209.138\n")  # Execute command nmap to remote host
+        (stdin, stdout, stderr) = client.exec_command("nmap 192.168.209.138")  # Execute command nmap to remote
+        # host
         command_result = stdout.readlines()
         print("Active ports for remote host: ", command_result)  # Read the output of the command and print it
 
+        with open(output_file, "w+") as file:
+            file.write(str(command_result))  # save the contents of the command result into a file scanports.txt
+        return output_file
+    finally:
         client.close()  # close the session
-    except paramiko.AuthenticationException:
-        print("Failed to connect")
 
 
 ssh_connection("192.168.209.138")
-
