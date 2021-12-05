@@ -1,58 +1,36 @@
 #!/usr/bin/env python3
 
 # ------------------------------------------
-# File Name = L00170565_Q2_File_1.py
+# File Name = L00170565_Q3_File_1.py
 # Project = Python Project
 #
 # Author = Panagiotis Drakos, L00170565
 # Date = 03/12/21
 # Copyright = (C) 2021 Panagiotis Drakos
 # ------------------------------------------
-
-
-import paramiko
-import time
-import re
+from paramiko.client import SSHClient, AutoAddPolicy
 
 
 def ssh_connection(ip):
+    user_name = "dev"
+    user_pass = "dev123!"
+    remote_ip = "192.168.209.138"
+    remote_port = 22  # Change this if your SSH port is different
+
+    client = SSHClient()
+    # client.load_system_host_keys() # For already known hosts
+    client.set_missing_host_key_policy(AutoAddPolicy())  # Use unknown host keys for the script
     try:
-        username = 'dev'
-        password = 'dev123!'
-
-        print('Connection in progress...')
-        session = paramiko.SSHClient()
-        session.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        session.connect(ip.rstrip("\n"), username=username, password=password)
-        connection = session.invoke_shell()
-        connection.send("ls > dir_contents.txt\n")
-        time.sleep(1)
-
-        vm_output = connection.recv(65535)
-        if re.search(b"% Invalid input", vm_output):
-            print("There was an error on vm {}".format(ip))
-        else:
-            print("Command successfully executed on vm {}".format(ip))
-        session.close()
-    except paramiko.AuthenticationException:
-        print("Authentication Error")
+        client.connect(remote_ip, port=remote_port,
+                       username=user_name,
+                       password=user_pass,
+                       look_for_keys=False)
+        print("Connected Successfully...")
+        client.close()
+    except Exception:
+        print("Failed to connect")
+    # finally:
+    #     client.close()
 
 
-if __name__ == "__main__":
-    ssh_connection("192.168.209.139")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ssh_connection("192.168.209.138")
