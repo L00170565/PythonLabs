@@ -10,6 +10,29 @@
 # ------------------------------------------
 
 
+import paramiko
+import time
+import re
+
+
+def ssh_connection(ip=None):
+    try:
+        username = 'dev'
+        password = 'dev123!'
+
+        print('Connection in progress...')
+        session = paramiko.SSHClient()
+        session.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        session.connect(ip.rstrip("\n"), username=username, password=password)
+        connection = session.invoke_shell()
+        connection.send("ls > dir_contents.txt\n")
+
+
+
+
+
+
+
 
 
 
