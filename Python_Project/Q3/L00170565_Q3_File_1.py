@@ -8,6 +8,13 @@
 # Date = 03/12/21
 # Copyright = (C) 2021 Panagiotis Drakos
 # ------------------------------------------
+""" Description: We have first imported the Paramiko library SSHClient in order to be able to initiate
+an SSH session with remote host. As a next step, variables were created to include the required
+information for the SSH session. For an already known host, host system keys can be loaded,
+but in order to be more secure, Paramiko's AutoAddPolicy has been used, and instead of loading the
+host keys from the system itself, unknown host keys are used. With that second part configured,
+a try-catch block is used and execute the instructions for connection"""
+
 from paramiko.client import SSHClient, AutoAddPolicy
 
 
