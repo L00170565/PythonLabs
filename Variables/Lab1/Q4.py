@@ -2,13 +2,13 @@
 
 # ------------------------------------------
 # Project = PythonLabs
-# FileName = Q4.py
+# FileName = Lab1/Q4.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
-#
-# Lab Description: Carry out the following calculations.
-# Why are these examples important?
 # ------------------------------------------
+"""Lab Description: Carry out the following calculations.
+Why are these examples important?"""
+
 
 print(6 + 8 / 2 - 1)
 print((1 + 1 - 1 + 2 )/ 2)
