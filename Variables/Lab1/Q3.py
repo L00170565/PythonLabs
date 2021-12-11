@@ -2,13 +2,13 @@
 
 # ------------------------------------------
 # Project = PythonLabs
-# FileName = Q3.py
+# FileName = Lab1/Q3.py
 #
 # (C) 2021 Panagiotis Drakos, L00170565
-#
-# Lab Description: Consider the type of information and it’s structure for the following items.
-# You are not asked to code anything here. Just consider the information:
 # ------------------------------------------
+
+"""Lab Description: Consider the type of information, and it’s structure for the following items.
+You are not asked to code anything here. Just consider the information:"""
 
 # ppsn
 print("{}".format("1234567FA"))
